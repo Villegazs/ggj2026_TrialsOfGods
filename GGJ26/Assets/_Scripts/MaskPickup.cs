@@ -16,7 +16,7 @@ public class MaskPickup : Interactable
             playerInventory.EquipMask(maskPrefab);
             PlayPickupEffects();
             StaticEventHandler.RaiseMaskEquipped();
-            DisableInteraction();
+            OnPickup();
         }
     }
 

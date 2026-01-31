@@ -40,7 +40,7 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Enable();
 
         playerInputActions.Player.Interact.performed += Interact_Performed;
-        //playerInputActions.Player.InteractAlternate.performed += InteractAlternate_Performed;
+        playerInputActions.Player.InteractAlternate.performed += InteractAlternate_Performed;
         //playerInputActions.Player.Pause.performed += Pause_Performed;
 
 
@@ -94,7 +94,7 @@ public class GameInput : MonoBehaviour
             case Binding.Move_Right:
                 return playerInputActions.Player.Move.bindings[4].ToDisplayString();
            
-            /*case Binding.Interact:
+            case Binding.Interact:
                     return playerInputActions.Player.Interact.bindings[0].ToDisplayString();
             case Binding.InteractAlternate:
                     return playerInputActions.Player.InteractAlternate.bindings[0].ToDisplayString();
@@ -105,7 +105,7 @@ public class GameInput : MonoBehaviour
             case Binding.Gamepad_InteractAlternate:
                 return playerInputActions.Player.InteractAlternate.bindings[1].ToDisplayString();
             case Binding.Gamepad_Pause:
-                return playerInputActions.Player.Pause.bindings[1].ToDisplayString();*/
+                return playerInputActions.Player.Pause.bindings[1].ToDisplayString();
         }
     }
 
