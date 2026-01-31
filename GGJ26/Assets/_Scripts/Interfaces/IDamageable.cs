@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class IDamageable : MonoBehaviour
@@ -6,6 +7,11 @@ public class IDamageable : MonoBehaviour
     void Start()
     {
         
+    }
+
+    private void Awake()
+    {
+        throw new NotImplementedException();
     }
 
     // Update is called once per frame
