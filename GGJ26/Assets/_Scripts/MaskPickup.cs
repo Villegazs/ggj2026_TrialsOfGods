@@ -9,15 +9,15 @@ public class MaskPickup : Interactable
 
     protected override void Interact()
     {
-       // PlayerInventory playerInventory = FindObjectOfType<PlayerInventory>();
+        PlayerInventory playerInventory = FindObjectOfType<PlayerInventory>();
         
-       // if (playerInventory != null)
-        //{
-           // playerInventory.EquipMask(maskPrefab);
+        if (playerInventory != null)
+        {
+            playerInventory.EquipMask(maskPrefab);
             PlayPickupEffects();
             StaticEventHandler.RaiseMaskEquipped();
             DisableInteraction();
-        //}
+        }
     }
 
     private void PlayPickupEffects()
