@@ -8,6 +8,7 @@ public class CharacterMovement : MonoBehaviour
     public MovementStateSO groundedStateSo;
     public MovementStateSO airStateSo;
     public MovementStateSO usingWindMaskStateSo;
+    public MovementStateSO windMaskJumpStateSo;
 
     public PlayerStateMachine StateMachine { get; private set; }
 
@@ -46,6 +47,10 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] int maxAirJumps = 1;
 
     int airJumpsRemaining;
+    [Header("Mask")]
+    [SerializeField] private Masks equippedMask = Masks.Light; // default
+
+    
 
 
     public CharacterController Controller { get; private set; }
@@ -55,6 +60,9 @@ public class CharacterMovement : MonoBehaviour
     public Vector3 MoveInputWorld { get; private set; }
     public Vector3 MoveInputLocal { get; private set; }
 
+    private bool equipMask = false;
+
+    private PlayerInventory _playerInventory;
     
     // -------- ABILITIES --------
     Dictionary<AbilitySO, AbilityRuntimeData> abilityData =
@@ -70,6 +78,7 @@ public class CharacterMovement : MonoBehaviour
 
     void Start()
     {
+        _playerInventory=this.gameObject.GetComponent<PlayerInventory>();
         airJumpsRemaining = maxAirJumps;
         StateMachine.Initialize(groundedStateSo, this);
     }
@@ -77,11 +86,13 @@ public class CharacterMovement : MonoBehaviour
     void OnEnable()
     {
         StaticEventHandler.OnWindMaskActivated += ActivateWindMaskState;
+        StaticEventHandler.OnMaskEquipped += EquipMaskAlternate;
     }
 
     void OnDisable()
     {
         StaticEventHandler.OnWindMaskActivated -= ActivateWindMaskState;
+        StaticEventHandler.OnMaskEquipped -= EquipMaskAlternate;
     }
 
     void ActivateWindMaskState()
@@ -287,6 +298,46 @@ public class CharacterMovement : MonoBehaviour
             activeAbility.End(this);
             activeAbility = null;
         }
+    }
+
+    private GameObject _maskPickup;
+    
+    public void SetMaskPickup(GameObject maskPrefab)
+    {
+        _maskPickup = maskPrefab;
+    }
+    
+    
+    public void EquipMask(Masks mask)
+    {
+        if (_maskPickup)
+        {  
+            equippedMask = mask;
+        }
+        else
+        {
+            print("Falta mascara pelotudo");
+        }
+    }
+
+    public void EquipMaskPrefab()
+    {
+        _playerInventory.EquipMask(_maskPickup);
+    }
+
+    public void RemoveMask()
+    {
+        _playerInventory.RemoveMask();
+    }
+
+    private void EquipMaskAlternate()
+    {
+        equipMask = !equipMask;
+    }
+
+    public bool CanActivateWindMask()
+    {
+        return equippedMask == Masks.Wind && usingWindMaskStateSo != null && equipMask;
     }
 
 

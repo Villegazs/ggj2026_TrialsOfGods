@@ -942,6 +942,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
   groundedStateSo: {fileID: 11400000, guid: c3e3fbf673d14a54d806b54bbbd4b7f5, type: 2}
   airStateSo: {fileID: 11400000, guid: 4403503c2d6320e42a611bca2ec9d6ca, type: 2}
+  usingWindMaskStateSo: {fileID: 11400000, guid: 0870dca584bb66943b18c8003aaf3137, type: 2}
+  windMaskJumpStateSo: {fileID: 11400000, guid: e4df33e2da1331644a27b71263aa1ae2, type: 2}
   defaultMovement: {fileID: 11400000, guid: 3d5722cd853410542861d0e200a004b3, type: 2}
   jumpForce: 6
   groundedStickForce: -2
@@ -950,6 +952,7 @@ MonoBehaviour:
   jumpBufferTime: 0.15
   coyoteTime: 0.1
   maxAirJumps: 1
+  equippedMask: 2
 --- !u!143 &659952852
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2710,6 +2713,7 @@ MonoBehaviour:
   maskPrefab: {fileID: 7128074903216485207, guid: 9cbe2f65542417e4a99a2de921c75fda, type: 3}
   pickupSound: {fileID: 0}
   pickupEffect: {fileID: 0}
+  _masks: 0
 --- !u!1001 &173642194940650651
 PrefabInstance:
   m_ObjectHideFlags: 0

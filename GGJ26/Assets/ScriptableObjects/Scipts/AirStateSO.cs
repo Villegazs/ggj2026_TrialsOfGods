@@ -12,6 +12,12 @@ public class AirStateSO : MovementStateSO
 
     public override void Tick(CharacterMovement ctx)
     {
+        // Check if Q is pressed to activate Wind Mask state
+        if (Input.GetKeyDown(KeyCode.Q) && ctx.CanActivateWindMask())
+        {
+            ctx.StateMachine.SwitchState(ctx.usingWindMaskStateSo, ctx);
+            return;
+        }
        
         ctx.HandleHorizontalMovement(ctx.AirControl);
 

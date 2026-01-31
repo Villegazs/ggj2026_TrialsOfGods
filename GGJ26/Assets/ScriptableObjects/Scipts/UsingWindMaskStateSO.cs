@@ -26,6 +26,14 @@ public class UsingWindMaskStateSO : MovementStateSO
 
     public override void Tick(CharacterMovement ctx)
     {
+        // Check if player wants to jump while in wind mask state
+        if (ctx.HasBufferedJump() && ctx.windMaskJumpStateSo != null)
+        {
+            // Transition to Wind Mask Jump state (special jump only available from this state)
+            ctx.StateMachine.SwitchState(ctx.windMaskJumpStateSo, ctx);
+            return;
+        }
+        
         // Handle horizontal movement with wind mask active
         ctx.HandleHorizontalMovement(ctx.Controller.isGrounded ? 1f : ctx.AirControl);
         
@@ -62,5 +70,3 @@ public class UsingWindMaskStateSO : MovementStateSO
         ctx.ResetSpeedMultiplier();
     }
 }
-
-

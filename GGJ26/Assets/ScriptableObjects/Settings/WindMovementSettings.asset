@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MovementSettingsSO
   moveSpeed: 6
   acceleration: 10
-  gravity: -20
-  airControl: 0.4
+  gravity: -7
+  airControl: 0.7

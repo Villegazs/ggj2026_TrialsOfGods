@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9a9675787df584ea195ff7123b7daf, type: 3}
   m_Name: AerealMovementState
   m_EditorClassIdentifier: Assembly-CSharp::AirStateSO
-  abilities:
-  - {fileID: 11400000, guid: 1b9dda3cb11a1d1418b8e0986f2ca1dc, type: 2}
+  abilities: []
   aerealMovement: {fileID: 11400000, guid: 79e5fd6f0ec405641b5f3dbfb1f4fc6a, type: 2}

@@ -1,9 +1,10 @@
 using UnityEngine;
 
-enum Masks
+public enum Masks
 {
     Wind,
-    Light
+    Light,
+    None
 }
 public class MaskPickup : Interactable
 {
@@ -18,15 +19,17 @@ public class MaskPickup : Interactable
         
         if (playerInventory != null)
         {
-            playerInventory.EquipMask(maskPrefab);
             PlayPickupEffects();
             if (_masks == Masks.Wind)
             {
+                CharacterMovement _PlayerCharacterController = playerInventory.gameObject.GetComponent<CharacterMovement>();
+                _PlayerCharacterController.SetMaskPickup(maskPrefab);
+                _PlayerCharacterController.EquipMask(_masks);
                 StaticEventHandler.RaiseMaskEquipped();
             }
             else
             {
-                
+                //Todo Otra mascara
             }
             DisableInteraction();
         }
