@@ -23,6 +23,8 @@ public static class StaticEventHandler
     public static event Action OnJump;
     public static event Action OnLand;
     public static event Action OnDeath;
+    
+    public static event Action OnMaskEquipped;
 
     // ---------------- PARAMETER EVENTS ----------------
 
@@ -61,5 +63,10 @@ public static class StaticEventHandler
     public static void RaisePauseChanged(bool paused)
     {
         OnPauseChanged?.Invoke(paused);
+    }
+    
+    public static void RaiseMaskEquipped()
+    {
+        OnMaskEquipped?.Invoke();
     }
 }
