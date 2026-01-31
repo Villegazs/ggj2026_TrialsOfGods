@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4f7e51fa47849b43ab76bbd34bc4813, type: 3}
-  m_Name: GroundedState
-  m_EditorClassIdentifier: Assembly-CSharp::GroundedStateSO
-  abilities: []
-  groundedMovement: {fileID: 11400000, guid: 3d5722cd853410542861d0e200a004b3, type: 2}
+  m_Script: {fileID: 11500000, guid: ff142010117ff64469f5fa1cd5e6f913, type: 3}
+  m_Name: WindMovementSettings
+  m_EditorClassIdentifier: Assembly-CSharp::MovementSettingsSO
+  moveSpeed: 6
+  acceleration: 10
+  gravity: -20
+  airControl: 0.4

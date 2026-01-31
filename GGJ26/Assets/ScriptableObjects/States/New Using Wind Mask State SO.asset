@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4f7e51fa47849b43ab76bbd34bc4813, type: 3}
-  m_Name: GroundedState
-  m_EditorClassIdentifier: Assembly-CSharp::GroundedStateSO
+  m_Script: {fileID: 11500000, guid: fb835c36e1e84b06bed41d7497069230, type: 3}
+  m_Name: New Using Wind Mask State SO
+  m_EditorClassIdentifier: Assembly-CSharp::UsingWindMaskStateSO
   abilities: []
-  groundedMovement: {fileID: 11400000, guid: 3d5722cd853410542861d0e200a004b3, type: 2}
+  windMaskMovement: {fileID: 0}
+  windMaskDuration: 3

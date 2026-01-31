@@ -7,6 +7,7 @@ public class CharacterMovement : MonoBehaviour
     [Header("States")]
     public MovementStateSO groundedStateSo;
     public MovementStateSO airStateSo;
+    public MovementStateSO usingWindMaskStateSo;
 
     public PlayerStateMachine StateMachine { get; private set; }
 
@@ -71,6 +72,28 @@ public class CharacterMovement : MonoBehaviour
     {
         airJumpsRemaining = maxAirJumps;
         StateMachine.Initialize(groundedStateSo, this);
+    }
+
+    void OnEnable()
+    {
+        StaticEventHandler.OnWindMaskActivated += ActivateWindMaskState;
+    }
+
+    void OnDisable()
+    {
+        StaticEventHandler.OnWindMaskActivated -= ActivateWindMaskState;
+    }
+
+    void ActivateWindMaskState()
+    {
+        if (usingWindMaskStateSo != null)
+        {
+            StateMachine.SwitchState(usingWindMaskStateSo, this);
+        }
+        else
+        {
+            Debug.LogWarning("UsingWindMaskStateSO is not assigned in CharacterMovement!");
+        }
     }
 
     void Update()
