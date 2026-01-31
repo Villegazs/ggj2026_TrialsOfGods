@@ -24,7 +24,7 @@ public class WindMaskPickup : MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             // Activar el estado de Wind Mask a través del evento estático
-            StaticEventHandler.RaiseMaskEquipped();
+            StaticEventHandler.RaiseWindMaskActivated();
             
             // Feedback visual
             if (pickupEffect != null)
@@ -46,7 +46,7 @@ public class WindMaskPickup : MonoBehaviour
     // Método opcional para activar manualmente (por ejemplo, desde un botón UI)
     public void ActivateWindMask()
     {
-        StaticEventHandler.RaiseMaskEquipped();
+        StaticEventHandler.RaiseWindMaskActivated();
         Debug.Log("Wind Mask activated manually!");
     }
 }

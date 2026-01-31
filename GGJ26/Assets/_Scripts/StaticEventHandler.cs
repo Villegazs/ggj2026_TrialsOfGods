@@ -23,6 +23,7 @@ public static class StaticEventHandler
     public static event Action OnJump;
     public static event Action OnLand;
     public static event Action OnDeath;
+    public static event Action OnWindMaskActivated;
     
     public static event Action OnMaskEquipped;
 
@@ -48,6 +49,11 @@ public static class StaticEventHandler
     public static void RaiseDeath()
     {
         OnDeath?.Invoke();
+    }
+
+    public static void RaiseWindMaskActivated()
+    {
+        OnWindMaskActivated?.Invoke();
     }
 
     public static void RaiseHealthChanged(float health)

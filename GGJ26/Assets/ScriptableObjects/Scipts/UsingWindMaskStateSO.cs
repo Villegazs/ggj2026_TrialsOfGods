@@ -1,12 +1,13 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Movement States/Using Wind Mask")]
+[CreateAssetMenu(fileName = "New Wind Mask State", menuName = "Movement States/Using Wind Mask", order = 0)]
 public class UsingWindMaskStateSO : MovementStateSO
 {
     [Header("Wind Mask Settings")]
     public MovementSettingsSO windMaskMovement;
     public float windMaskDuration = 3f;
     
+    [System.NonSerialized]
     private float windMaskTimer;
 
     public override void Enter(CharacterMovement ctx)
@@ -61,3 +62,5 @@ public class UsingWindMaskStateSO : MovementStateSO
         ctx.ResetSpeedMultiplier();
     }
 }
+
+
