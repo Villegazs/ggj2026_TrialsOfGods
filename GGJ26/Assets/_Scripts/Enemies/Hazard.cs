@@ -10,7 +10,9 @@ public class Hazard : MonoBehaviour
     
     [Header("Knockback")]
     [SerializeField] protected bool applyKnockback = true;
-    [SerializeField] protected float knockbackForce = 10f;
+    [SerializeField] float knockbackX = 5f;
+    [SerializeField] float knockbackY = 3f;
+
     
     protected virtual void OnTriggerEnter(Collider other)
     {
@@ -44,7 +46,11 @@ public class Hazard : MonoBehaviour
     
     protected virtual void ApplyKnockback(Collider player)
     {
-        Vector3 direction = (player.transform.position - transform.position).normalized;
-        // player.GetComponent<CharacterMovement>()?.AddVerticalVelocity(knockbackForce);
+        KnockbackHandler knockback = player.GetComponent<KnockbackHandler>();
+        if (knockback != null)
+        {
+            Vector3 knockDir = (player.transform.position - transform.position).normalized;
+            knockback.ApplyKnockback(knockDir, knockbackX, knockbackY);
+        }
     }
 }

@@ -563,6 +563,7 @@ GameObject:
   - component: {fileID: 659952852}
   - component: {fileID: 659952851}
   - component: {fileID: 659952855}
+  - component: {fileID: 659952856}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -668,6 +669,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b508dd612a9f15b428cea4efb24e97b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+--- !u!114 &659952856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659952850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35fa386d476929847a997b8afd56e220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KnockbackHandler
+  currentKnockback: {x: 0, y: 0, z: 0}
+  decay: 5
 --- !u!1 &721558003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,7 +1538,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   applyKnockback: 1
-  knockbackForce: 10
+  knockbackX: 5
+  knockbackY: 3
   continuousDamage: 1
 --- !u!4 &2013052616
 Transform:
@@ -1695,8 +1711,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
-  applyKnockback: 0
-  knockbackForce: 10
+  applyKnockback: 1
+  knockbackX: 5
+  knockbackY: 3
   waypoints:
   - {fileID: 1141088194}
   - {fileID: 78530931}
