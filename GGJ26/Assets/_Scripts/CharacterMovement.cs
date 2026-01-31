@@ -22,6 +22,9 @@ public class CharacterMovement : MonoBehaviour
     public float jumpForce = 6f;
     [SerializeField] float groundedStickForce = -2f;
     
+    [Header("Input")]
+    [SerializeField] private GameInput gameInput;
+    
     public float GroundedStickForce
     {
         get { return groundedStickForce; }
@@ -125,10 +128,14 @@ public class CharacterMovement : MonoBehaviour
 
     public void HandleHorizontalMovement(float control)
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
+        //float x = Input.GetAxisRaw("Horizontal");
+        //float z = Input.GetAxisRaw("Vertical");
+        
+        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+        
+        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
 
-        MoveInputLocal = new Vector3(x, 0f, z);
+        MoveInputLocal = new Vector3(moveDir.x, 0f, moveDir.z);
         MoveInputLocal = Vector3.ClampMagnitude(MoveInputLocal, 1f);
 
         MoveInputWorld = transform.TransformDirection(MoveInputLocal);
