@@ -7,6 +7,7 @@ public class GroundedStateSO : MovementStateSO
 
     public override void Enter(CharacterMovement ctx)
     {
+        ctx.RemoveMask();
         ctx.ApplyMovementSettings(groundedMovement);
         UpdateAbilities(ctx);
       
@@ -17,6 +18,13 @@ public class GroundedStateSO : MovementStateSO
 
     public override void Tick(CharacterMovement ctx)
     {
+        // Activate Wind Mask on Q
+        if (Input.GetKeyDown(KeyCode.Q) && ctx.CanActivateWindMask())
+        {
+            ctx.EquipMaskPrefab();
+            ctx.StateMachine.SwitchState(ctx.usingWindMaskStateSo, ctx);
+            return;
+        }
        
         ctx.HandleHorizontalMovement(1f);
 

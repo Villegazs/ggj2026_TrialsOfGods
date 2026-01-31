@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f7e51fa47849b43ab76bbd34bc4813, type: 3}
   m_Name: GroundedState
   m_EditorClassIdentifier: Assembly-CSharp::GroundedStateSO
-  abilities:
-  - {fileID: 11400000, guid: 1a4921a1904b2df4fbd348b0ab078b5d, type: 2}
-  - {fileID: 11400000, guid: 1b9dda3cb11a1d1418b8e0986f2ca1dc, type: 2}
+  abilities: []
   groundedMovement: {fileID: 11400000, guid: 3d5722cd853410542861d0e200a004b3, type: 2}

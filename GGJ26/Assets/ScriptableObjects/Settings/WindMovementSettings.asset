@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db9a9675787df584ea195ff7123b7daf, type: 3}
-  m_Name: AerealMovementState
-  m_EditorClassIdentifier: Assembly-CSharp::AirStateSO
-  abilities: []
-  aerealMovement: {fileID: 11400000, guid: 79e5fd6f0ec405641b5f3dbfb1f4fc6a, type: 2}
+  m_Script: {fileID: 11500000, guid: ff142010117ff64469f5fa1cd5e6f913, type: 3}
+  m_Name: WindMovementSettings
+  m_EditorClassIdentifier: Assembly-CSharp::MovementSettingsSO
+  moveSpeed: 6
+  acceleration: 10
+  gravity: -7
+  airControl: 0.7
