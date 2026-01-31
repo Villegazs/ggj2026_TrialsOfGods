@@ -14,11 +14,11 @@ public class MaskPickup : Interactable
     [SerializeField] private Masks _masks;
     protected override void Interact()
     {
-       // PlayerInventory playerInventory = FindObjectOfType<PlayerInventory>();
+        PlayerInventory playerInventory = FindObjectOfType<PlayerInventory>();
         
-       // if (playerInventory != null)
-        //{
-           // playerInventory.EquipMask(maskPrefab);
+        if (playerInventory != null)
+        {
+            playerInventory.EquipMask(maskPrefab);
             PlayPickupEffects();
             if (_masks == Masks.Wind)
             {
@@ -29,7 +29,7 @@ public class MaskPickup : Interactable
                 
             }
             DisableInteraction();
-        //}
+        }
     }
 
     private void PlayPickupEffects()
