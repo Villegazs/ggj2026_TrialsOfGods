@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Hazard : MonoBehaviour
 {
+    
     [Header("Damage")]
     [SerializeField] protected int damage = 1;
     [SerializeField] protected float damageInterval = 1f;
@@ -21,15 +22,20 @@ public class Hazard : MonoBehaviour
     
     protected bool IsPlayer(Collider other)
     {
-        return ((1 << other.gameObject.layer) & playerLayer) != 0;
+        other.TryGetComponent(out Player player);
+        return player != null;
     }
     
     protected virtual void DamagePlayer(Collider player)
     {
         // Implementar lógica de daño
         // player.GetComponent<PlayerHealth>()?.TakeDamage(damage);
+        if (player.TryGetComponent(out IDamageable damageable))
+        {
+            damageable.TakeDamage(damage);
+        }
         
-        Debug.Log("Damaged player");
+        
         if (applyKnockback)
         {
             ApplyKnockback(player);

@@ -32,9 +32,10 @@ public class Projectile : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (((1 << other.gameObject.layer) & damageLayer) != 0)
+        if (other.TryGetComponent(out IDamageable damageable))
         {
             // other.GetComponent<PlayerHealth>()?.TakeDamage(damage);
+            damageable.TakeDamage(damage);
             Debug.Log("Damaged player");
             
             if (impactEffect != null)
