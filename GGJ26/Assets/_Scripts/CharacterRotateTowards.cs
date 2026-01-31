@@ -18,8 +18,10 @@ public class CharacterRotateTowards : MonoBehaviour
         // If we're not moving, don't rotate
         if (horizontalVelocity.sqrMagnitude < 0.001f)
             return;
+        
+        Vector3 forward = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up);
 
-        Quaternion targetRotation = Quaternion.LookRotation(horizontalVelocity);
+        Quaternion targetRotation = Quaternion.LookRotation(forward);
 
         transform.rotation = Quaternion.Slerp(
             transform.rotation,
