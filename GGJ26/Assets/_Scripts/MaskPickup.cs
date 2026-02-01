@@ -1,21 +1,36 @@
 using UnityEngine;
 
+public enum Masks
+{
+    Wind,
+    Light,
+    None
+}
 public class MaskPickup : Interactable
 {
     [Header("Mask Settings")]
     [SerializeField] private GameObject maskPrefab;
     [SerializeField] private AudioClip pickupSound;
     [SerializeField] private GameObject pickupEffect;
-
+    [SerializeField] private Masks _masks;
     protected override void Interact()
     {
         PlayerInventory playerInventory = FindObjectOfType<PlayerInventory>();
         
         if (playerInventory != null)
         {
-            playerInventory.EquipMask(maskPrefab);
             PlayPickupEffects();
-            StaticEventHandler.RaiseMaskEquipped();
+            if (_masks == Masks.Wind)
+            {
+                CharacterMovement _PlayerCharacterController = playerInventory.gameObject.GetComponent<CharacterMovement>();
+                _PlayerCharacterController.SetMaskPickup(maskPrefab);
+                _PlayerCharacterController.EquipMask(_masks);
+                StaticEventHandler.RaiseMaskEquipped();
+            }
+            else
+            {
+                //Todo Otra mascara
+            }
             OnPickup();
         }
     }
