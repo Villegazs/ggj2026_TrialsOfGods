@@ -16,4 +16,4 @@ MonoBehaviour:
   priority: 0
   cooldown: 0
   inputBufferTime: 0.1
-  speedMultiplier: 10
+  speedMultiplier: 2

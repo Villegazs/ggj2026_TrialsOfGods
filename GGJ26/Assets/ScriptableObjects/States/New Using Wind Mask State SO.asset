@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b9dda3cb11a1d1418b8e0986f2ca1dc, type: 2}
   - {fileID: 11400000, guid: 1a4921a1904b2df4fbd348b0ab078b5d, type: 2}
   windMaskMovement: {fileID: 11400000, guid: 04e4dd903fbebe346853537ca59b2f08, type: 2}
-  windMaskDuration: 1
+  windMaskDuration: 3

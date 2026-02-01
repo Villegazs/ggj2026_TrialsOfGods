@@ -32,10 +32,14 @@ public class DashAbilitySO : AbilitySO
     public override void Tick(CharacterMovement ctx)
     {
         timer -= Time.deltaTime;
-
+        
         ctx.HorizontalVelocity = dashDirection * dashSpeed;
 
         if (timer <= 0f)
+        {
             ctx.EndAbility(this);
+            timer = dashDuration;
+        }
+            
     }
 }

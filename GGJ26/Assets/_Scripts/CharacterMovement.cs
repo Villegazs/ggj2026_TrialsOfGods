@@ -49,8 +49,11 @@ public class CharacterMovement : MonoBehaviour
     int airJumpsRemaining;
     [Header("Mask")]
     [SerializeField] private Masks equippedMask = Masks.Light; // default
+    [SerializeField] private float maskCooldown = 2f;
 
-    
+    private float maskCooldownTimer;
+    public bool IsMaskOnCooldown => maskCooldownTimer > 0f;
+
 
 
     public CharacterController Controller { get; private set; }
@@ -114,6 +117,8 @@ public class CharacterMovement : MonoBehaviour
 
         // THIS runs every frame
         UpdateAbilities();
+        if (maskCooldownTimer > 0f)
+            maskCooldownTimer -= Time.deltaTime;
 
         StateMachine.Tick(this);
         activeAbility?.Tick(this);
@@ -295,9 +300,9 @@ public class CharacterMovement : MonoBehaviour
             activeAbility.activationType == AbilitySO.AbilityActivationType.Hold &&
             !activeAbility.WantsToActivate(this))
         {
-            activeAbility.End(this);
-            activeAbility = null;
+            EndAbility(activeAbility); // ✅ unified exit
         }
+
     }
 
     private GameObject _maskPickup;
@@ -337,8 +342,16 @@ public class CharacterMovement : MonoBehaviour
 
     public bool CanActivateWindMask()
     {
-        return equippedMask == Masks.Wind && usingWindMaskStateSo != null && equipMask;
+        return equippedMask == Masks.Wind
+               && usingWindMaskStateSo != null
+               && equipMask
+               && !IsMaskOnCooldown;
     }
+    public void StartMaskCooldown()
+    {
+        maskCooldownTimer = maskCooldown;
+    }
+
 
 
     void ExecuteAbility(AbilitySO ability)
@@ -369,6 +382,18 @@ public class CharacterMovement : MonoBehaviour
 
         ability.End(this);
         activeAbility = null;
+    }
+
+    public void ResetAbilityData()
+    {
+        foreach (var data in abilityData.Values)
+            data.Reset();
+
+        if (activeAbility != null)
+        {
+            activeAbility.End(this);
+            activeAbility = null;
+        }
     }
 
 

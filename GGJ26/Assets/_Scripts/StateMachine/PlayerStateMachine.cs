@@ -13,7 +13,11 @@ public class PlayerStateMachine
         if (next == CurrentState || next == null)
             return;
 
-        CurrentState.Exit(ctx);
+        ctx.ResetAbilityData();
+        
+        if (CurrentState == ctx.usingWindMaskStateSo)
+            ctx.StartMaskCooldown();
+        CurrentState.Exit(ctx); 
         CurrentState = next;
         CurrentState.Enter(ctx);
     }

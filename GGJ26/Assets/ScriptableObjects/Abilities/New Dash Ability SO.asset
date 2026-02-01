@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DashAbilitySO
   activationType: 1
   priority: 1
-  cooldown: 0.5
-  inputBufferTime: 0.15
-  dashSpeed: 41.2
+  cooldown: 2
+  inputBufferTime: 2
+  dashSpeed: 16
   dashDuration: 0.15

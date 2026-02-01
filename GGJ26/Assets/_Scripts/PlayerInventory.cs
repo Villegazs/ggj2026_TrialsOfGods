@@ -6,7 +6,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private Transform maskEquipPoint;
 
     [Header("Current Equipment")]
-    private GameObject currentMask;
+    [SerializeField] private GameObject currentMask;
     private bool hasMask = false;
 
     public bool HasMask => hasMask;
