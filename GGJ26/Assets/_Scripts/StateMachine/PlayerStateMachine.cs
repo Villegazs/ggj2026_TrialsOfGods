@@ -15,9 +15,10 @@ public class PlayerStateMachine
 
         ctx.ResetAbilityData();
         
+
+        CurrentState.Exit(ctx); 
         if (CurrentState == ctx.usingWindMaskStateSo)
             ctx.StartMaskCooldown();
-        CurrentState.Exit(ctx); 
         CurrentState = next;
         CurrentState.Enter(ctx);
     }

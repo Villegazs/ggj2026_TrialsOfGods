@@ -18,6 +18,7 @@ public class DashAbilitySO : AbilitySO
 
     public override void Execute(CharacterMovement ctx)
     {
+        StaticEventHandler.RaiseDash(true);
         timer = dashDuration;
 
         // Use cached input

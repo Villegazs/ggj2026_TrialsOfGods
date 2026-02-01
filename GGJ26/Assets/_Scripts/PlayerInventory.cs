@@ -87,6 +87,7 @@ public class PlayerInventory : MonoBehaviour
         seq.OnComplete(() =>
         {
             RemoveMask();
+            HUDUI.Instance.DeactivateAbilitiesMask();
         });
     }
 

@@ -39,6 +39,8 @@ public static class StaticEventHandler
     public static event Action <float> OnMaskEquippedTimer;
     
     public static event Action <float> OnMaskCooldownTimer;
+    
+    public static event Action <bool>OnDash;
 
     // ---------------- SAFE INVOKERS ----------------
 
@@ -95,5 +97,10 @@ public static class StaticEventHandler
     public static void WindMaskUnlocked()
     {
         OnWindMaskUnlocked?.Invoke();
+    }
+
+    public static void RaiseDash(bool dash)
+    {
+        OnDash?.Invoke(dash);
     }
 }

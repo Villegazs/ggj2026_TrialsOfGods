@@ -5,15 +5,18 @@ using System.Collections;
 
 public class HUDUI : MonoBehaviour
 {
-    public HUDUI Instance { get; private set; }
+    public static HUDUI Instance { get; private set; }
     [SerializeField] private Image healthBar;
     [SerializeField] private Image windMaskImage;
+    [SerializeField] private Image dashImage;
+    [SerializeField] private Image sprintImage;
     [SerializeField] private Transform windMaskContainer;
-    
+
+    private bool hasMask;
     private float timer;
-    private float cooldownTimer;
+    private float cooldownMaskTimer;
     private float timerDuration;
-    private float cooldownDuration;
+    private float cooldownMaskDuration;
     
     
     private int actualHealth;
@@ -25,12 +28,29 @@ public class HUDUI : MonoBehaviour
 
     private void Start()
     {
+        dashImage.fillAmount = 0;
+        sprintImage.fillAmount = 0;
         windMaskContainer.gameObject.SetActive(false);
         StaticEventHandler.OnMaskEquippedTimer += StaticEventHandler_OnStartTimer;
         StaticEventHandler.OnMaskCooldownTimer += StaticEventHandler_OnStartCooldownTimer;
         StaticEventHandler.OnWindMaskUnlocked+= StaticEventHandler_OnWindMaskUnlocked;
+        StaticEventHandler.OnDash+= StaticEventHandler_OnRaiseDash;
         Player.Instance.OnApplyDamage += Player_OnApplyDamage;
         UpdateHealthBar();
+    }
+    
+    private void StaticEventHandler_OnRaiseDash(bool isDashing)
+    {
+        Debug.Log("Dash raised");
+        if (!isDashing)
+        {
+            dashImage.fillAmount = 1;
+        }
+        else
+        {
+            dashImage.fillAmount = 0;
+        }
+
     }
     
     private void StaticEventHandler_OnWindMaskUnlocked()
@@ -40,6 +60,8 @@ public class HUDUI : MonoBehaviour
     }
     private void StaticEventHandler_OnStartTimer(float time)
     {
+        dashImage.fillAmount = 1;
+        sprintImage.fillAmount = 1;
         timerDuration = time;
         timer = timerDuration;
         Debug.Log("Timer started");
@@ -48,10 +70,14 @@ public class HUDUI : MonoBehaviour
     private void StaticEventHandler_OnStartCooldownTimer(float time)
     {
         Debug.Log("Cooldown started");
-        cooldownDuration = time;
-        cooldownTimer = time;
+        cooldownMaskDuration = time;
+        cooldownMaskTimer = time;
     }
 
+    private void OnDestroy()
+    {
+        Player.Instance.OnApplyDamage -= Player_OnApplyDamage;
+    }
     private void Update()
     {
         MaskUI();
@@ -73,15 +99,27 @@ public class HUDUI : MonoBehaviour
     {
         if (timer > 0)
         {
+            hasMask = true;
             timer -= Time.deltaTime;
             windMaskImage.fillAmount = timer / timerDuration;
         }
-        else if(cooldownTimer > 0)
+        else if(cooldownMaskTimer > 0)
         {
-            windMaskImage.fillAmount = 1 - (cooldownTimer / cooldownDuration);
-            cooldownTimer -= Time.deltaTime;
-            
+            hasMask = false;
+            CooldownMaskLogic(windMaskImage, cooldownMaskDuration);
         }
+    }
+
+    private void CooldownMaskLogic(Image imageToMask, float duration)
+    {
+        imageToMask.fillAmount = 1 - (cooldownMaskTimer / duration);
+        cooldownMaskTimer -= Time.deltaTime;
+    }
+    
+    public void DeactivateAbilitiesMask()
+    {
+        dashImage.fillAmount = 0;
+        sprintImage.fillAmount = 0;
     }
     
 }
