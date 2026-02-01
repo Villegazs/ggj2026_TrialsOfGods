@@ -290,6 +290,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
   maskEquipPoint: {fileID: 2180994738696200379}
   currentMask: {fileID: 0}
+  moveDuration: 0.6
+  scaleDuration: 0.5
+  moveEase: 9
+  scaleEase: 26
 --- !u!1001 &3242380614212995798
 PrefabInstance:
   m_ObjectHideFlags: 0
