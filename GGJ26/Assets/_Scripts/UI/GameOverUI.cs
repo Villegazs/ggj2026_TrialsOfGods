@@ -12,7 +12,7 @@ public class GameOverUI : MonoBehaviour
         restartButton.onClick.AddListener(() =>
         {
             //Click
-            Loader.Load(Loader.Scene.GameScene);
+            Loader.Load(Loader.Scene.TestingScene);
         });
         
         mainMenuButton.onClick.AddListener(() =>

@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &33114868 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7845835626416425564, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-  m_PrefabInstance: {fileID: 7875310924418363853}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!4 &659952854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6798543589859830353, guid: 84c306fa45abb91489d2c48b2cadea2a, type: 3}
@@ -485,17 +474,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!114 &1454997961 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6048084029017743175, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-  m_PrefabInstance: {fileID: 7875310924418363853}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!114 &1738457214 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1601060724979032836, guid: 12b4bdc80089e6d4e8bfeaed4ad18ba4, type: 3}
@@ -507,43 +485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9098a44291fcd6846a1149cc4cffb454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameInput
---- !u!1 &1914980645 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1676755476325233148, guid: 6cfbdc2fc217d0e4794d1615c29865b2, type: 3}
-  m_PrefabInstance: {fileID: 110052978233231184}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1914980652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914980645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBasicMultiChannelPerlin
-  NoiseProfile: {fileID: 11400000, guid: e9ce97b7a206dc64d90931ea044e0c72, type: 2}
-  PivotOffset: {x: 0, y: 0, z: 0}
-  AmplitudeGain: 0
-  FrequencyGain: 0
-  m_NoiseOffsets: {x: 0, y: 0, z: 0}
---- !u!114 &1914980653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914980645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d850047c25c7ebd4c893a12af8a1a59b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
-  defaultDuration: 0.25
-  defaultMagnitude: 3
-  shakeCamera: {fileID: 1914980652}
 --- !u!1 &1949914784
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,13 +634,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1676755476325233148, guid: 6cfbdc2fc217d0e4794d1615c29865b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1914980652}
-    - targetCorrespondingSourceObject: {fileID: 1676755476325233148, guid: 6cfbdc2fc217d0e4794d1615c29865b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1914980653}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cfbdc2fc217d0e4794d1615c29865b2, type: 3}
 --- !u!1001 &173642194940650651
 PrefabInstance:
@@ -1406,14 +1341,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1913203393642971987, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f7d938dbe3a517a43aa855a90e3f7b25, type: 3}
-    - target: {fileID: 2973181858189203290, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_Name
-      value: SprintImageUI
-      objectReference: {fileID: 0}
     - target: {fileID: 3090956279350472468, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1494,81 +1421,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3150025993240667196, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_Name
-      value: DashUIContainer
-      objectReference: {fileID: 0}
-    - target: {fileID: 3633102100169660849, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 3633102100169660849, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 3633102100169660849, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 73.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3633102100169660849, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -76.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3907046422029180572, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_Name
-      value: SprintUIContainer
-      objectReference: {fileID: 0}
-    - target: {fileID: 4685576995440323504, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 4685576995440323504, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 4685576995440323504, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 73.79999
-      objectReference: {fileID: 0}
-    - target: {fileID: 4685576995440323504, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -76.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4724617330243380476, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 0109fbaf55ca6f24baf0e95d6368a4bf, type: 3}
-    - target: {fileID: 5287630978556293501, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: dashImage
-      value: 
-      objectReference: {fileID: 33114868}
-    - target: {fileID: 5287630978556293501, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: sprintImage
-      value: 
-      objectReference: {fileID: 1454997961}
     - target: {fileID: 5939733204223855961, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7809290795239492706, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_Name
-      value: DashImageUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 7845835626416425564, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_Color.b
-      value: 0.27843142
-      objectReference: {fileID: 0}
-    - target: {fileID: 7845835626416425564, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_Color.g
-      value: 0.33350664
-      objectReference: {fileID: 0}
-    - target: {fileID: 7845835626416425564, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-      propertyPath: m_Color.r
-      value: 0.7254902
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1869632948842421395, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
-    - {fileID: 2914995235029622030, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
