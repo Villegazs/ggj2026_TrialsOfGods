@@ -8,10 +8,12 @@ public class HUDUI : MonoBehaviour
     public HUDUI Instance { get; private set; }
     [SerializeField] private Image healthBar;
     [SerializeField] private Image windMaskImage;
+    [SerializeField] private Transform windMaskContainer;
     
     private float timer;
     private float cooldownTimer;
     private float timerDuration;
+    private float cooldownDuration;
     
     
     private int actualHealth;
@@ -23,10 +25,18 @@ public class HUDUI : MonoBehaviour
 
     private void Start()
     {
+        windMaskContainer.gameObject.SetActive(false);
         StaticEventHandler.OnMaskEquippedTimer += StaticEventHandler_OnStartTimer;
         StaticEventHandler.OnMaskCooldownTimer += StaticEventHandler_OnStartCooldownTimer;
+        StaticEventHandler.OnWindMaskUnlocked+= StaticEventHandler_OnWindMaskUnlocked;
         Player.Instance.OnApplyDamage += Player_OnApplyDamage;
         UpdateHealthBar();
+    }
+    
+    private void StaticEventHandler_OnWindMaskUnlocked()
+    {
+        Debug.Log("Wind Mask unlocked!");
+        windMaskContainer.gameObject.SetActive(true);
     }
     private void StaticEventHandler_OnStartTimer(float time)
     {
@@ -37,7 +47,8 @@ public class HUDUI : MonoBehaviour
     
     private void StaticEventHandler_OnStartCooldownTimer(float time)
     {
-        timerDuration = time;
+        Debug.Log("Cooldown started");
+        cooldownDuration = time;
         cooldownTimer = time;
     }
 
@@ -67,7 +78,7 @@ public class HUDUI : MonoBehaviour
         }
         else if(cooldownTimer > 0)
         {
-            windMaskImage.fillAmount = 1 - (cooldownTimer / timerDuration);
+            windMaskImage.fillAmount = 1 - (cooldownTimer / cooldownDuration);
             cooldownTimer -= Time.deltaTime;
             
         }

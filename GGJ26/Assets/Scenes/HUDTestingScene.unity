@@ -124,6 +124,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6798543589859830353, guid: 84c306fa45abb91489d2c48b2cadea2a, type: 3}
   m_PrefabInstance: {fileID: 7580819283468360785}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &732711280 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1368201595802331496, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
+  m_PrefabInstance: {fileID: 7875310924418363853}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &788803544
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,11 +352,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 49.056}
---- !u!4 &1315872669 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2180994738696200379, guid: 84c306fa45abb91489d2c48b2cadea2a, type: 3}
-  m_PrefabInstance: {fileID: 7580819283468360785}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1387039966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,10 +1151,6 @@ PrefabInstance:
       propertyPath: gameInput
       value: 
       objectReference: {fileID: 1738457214}
-    - target: {fileID: 5861239730752198197, guid: 84c306fa45abb91489d2c48b2cadea2a, type: 3}
-      propertyPath: flyToTarget
-      value: 
-      objectReference: {fileID: 1315872669}
     - target: {fileID: 6798543589859830353, guid: 84c306fa45abb91489d2c48b2cadea2a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1422,6 +1418,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5287630978556293501, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
+      propertyPath: windMaskContainer
+      value: 
+      objectReference: {fileID: 732711280}
     - target: {fileID: 5939733204223855961, guid: b8c7ee85d1d86384da779c3e6b8c8060, type: 3}
       propertyPath: m_Name
       value: Canvas

@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public static class StaticEventHandler
 {
@@ -24,6 +25,7 @@ public static class StaticEventHandler
     public static event Action OnLand;
     public static event Action OnDeath;
     public static event Action OnWindMaskActivated;
+    public static event Action OnWindMaskUnlocked;
     
     public static event Action OnMaskEquipped;
 
@@ -82,10 +84,16 @@ public static class StaticEventHandler
     
     public static void RaiseMaskEquippedTimer(float time)
     {
+        Debug.Log($"Mask equipped for {time} seconds");
         OnMaskEquippedTimer?.Invoke(time);
     }
     public static void RaiseMaskCooldownTimer(float time)
     {
         OnMaskCooldownTimer?.Invoke(time);
+    }
+
+    public static void WindMaskUnlocked()
+    {
+        OnWindMaskUnlocked?.Invoke();
     }
 }

@@ -22,8 +22,6 @@ public class UsingWindMaskStateSO : MovementStateSO
         
         UpdateAbilities(ctx);
         windMaskTimer = windMaskDuration;
-        
-        StaticEventHandler.RaiseMaskEquippedTimer(windMaskDuration);
     }
 
     public override void Tick(CharacterMovement ctx)

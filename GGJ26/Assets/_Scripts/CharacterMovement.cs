@@ -7,7 +7,7 @@ public class CharacterMovement : MonoBehaviour
     [Header("States")]
     public MovementStateSO groundedStateSo;
     public MovementStateSO airStateSo;
-    public MovementStateSO usingWindMaskStateSo;
+    public UsingWindMaskStateSO usingWindMaskStateSo;
     public MovementStateSO windMaskJumpStateSo;
 
     public PlayerStateMachine StateMachine { get; private set; }
@@ -335,6 +335,7 @@ public class CharacterMovement : MonoBehaviour
         if (_maskPickup)
         {  
             equippedMask = mask;
+            StaticEventHandler.WindMaskUnlocked();
         }
         else
         {

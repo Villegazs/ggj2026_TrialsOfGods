@@ -23,6 +23,7 @@ public class GroundedStateSO : MovementStateSO
         {
             ctx.EquipMaskPrefab();
             ctx.StateMachine.SwitchState(ctx.usingWindMaskStateSo, ctx);
+            StaticEventHandler.RaiseMaskEquippedTimer(ctx.usingWindMaskStateSo.windMaskDuration);
             return;
         }
        
