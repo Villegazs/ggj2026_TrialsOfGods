@@ -372,5 +372,5 @@ public class CharacterMovement : MonoBehaviour
     }
 
 
-
+    public float TimerValue {get;set;}
 }

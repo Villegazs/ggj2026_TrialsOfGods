@@ -22,6 +22,8 @@ public class UsingWindMaskStateSO : MovementStateSO
         
         UpdateAbilities(ctx);
         windMaskTimer = windMaskDuration;
+        //todo EVENTO POR MEDIO DEL STATIC EVENT HANDLER Y LO RECIVE EL HUD
+        StaticEventHandler.RaiseMaskEquippedTimer(windMaskDuration);
     }
 
     public override void Tick(CharacterMovement ctx)
@@ -50,6 +52,7 @@ public class UsingWindMaskStateSO : MovementStateSO
         
         // Update timer and exit state when duration ends
         windMaskTimer -= Time.deltaTime;
+        ctx.TimerValue= windMaskTimer; // For UI display
         if (windMaskTimer <= 0f)
         {
             // Return to appropriate state based on grounded status
