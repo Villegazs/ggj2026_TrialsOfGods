@@ -9,6 +9,8 @@ using Unity.Collections;
 
 public class Player : MonoBehaviour , IDamageable
 {
+    public event EventHandler OnGamePaused;
+    public event EventHandler OnGameUnpaused;
     public event EventHandler OnApplyDamage;
     public static Player Instance { get; private set; }
     
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour , IDamageable
     private int health;
     
     private bool isCursorLocked = true;
+    private bool isGamePaused = false;
     
     [ReadOnly] private float timer;
 
@@ -33,9 +36,14 @@ public class Player : MonoBehaviour , IDamageable
 
     private void Start()
     {
+        GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
         playerStateMachine = characterMovement.StateMachine;
-        isCursorLocked = true;
+        isCursorLocked = false;
         AlternateCursor();
+    }
+    private void GameInput_OnPauseAction(object sender, EventArgs e)
+    {
+        TogglePauseGame();
     }
     
 
@@ -63,10 +71,9 @@ public class Player : MonoBehaviour , IDamageable
     
     private void AlternateCursor()
     {
-        isCursorLocked = !isCursorLocked;
-        Debug.Log($"Cursor lock: {isCursorLocked}");
+        Debug.Log($"Cursor lock: {isGamePaused}");
         
-        if(isCursorLocked)
+        if(!isGamePaused)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -76,7 +83,6 @@ public class Player : MonoBehaviour , IDamageable
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        
         
     }
 
@@ -88,5 +94,21 @@ public class Player : MonoBehaviour , IDamageable
     public CharacterMovement GetCharacterMovement()
     {
         return characterMovement;
+    }
+    
+    public void TogglePauseGame()
+    {
+        isGamePaused = !isGamePaused;
+        AlternateCursor();
+        if (isGamePaused)
+        {
+            Time.timeScale = 0f;
+            OnGamePaused?.Invoke(this, EventArgs.Empty);
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            OnGameUnpaused?.Invoke(this, EventArgs.Empty);
+        }
     }
 }
