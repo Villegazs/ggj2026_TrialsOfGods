@@ -35,6 +35,8 @@ public static class StaticEventHandler
     public static event Action<bool> OnPauseChanged;
     
     public static event Action <float> OnMaskEquippedTimer;
+    
+    public static event Action <float> OnMaskCooldownTimer;
 
     // ---------------- SAFE INVOKERS ----------------
 
@@ -81,5 +83,9 @@ public static class StaticEventHandler
     public static void RaiseMaskEquippedTimer(float time)
     {
         OnMaskEquippedTimer?.Invoke(time);
+    }
+    public static void RaiseMaskCooldownTimer(float time)
+    {
+        OnMaskCooldownTimer?.Invoke(time);
     }
 }

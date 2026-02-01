@@ -53,6 +53,8 @@ public class CharacterMovement : MonoBehaviour
 
     private float maskCooldownTimer;
     public bool IsMaskOnCooldown => maskCooldownTimer > 0f;
+    
+    private bool canInteract = true;
 
 
 
@@ -74,6 +76,7 @@ public class CharacterMovement : MonoBehaviour
 
     void Awake()
     {
+        canInteract = true;
         Controller = GetComponent<CharacterController>();
         StateMachine = new PlayerStateMachine();
         ApplyMovementSettings(defaultMovement);
@@ -84,6 +87,7 @@ public class CharacterMovement : MonoBehaviour
         _playerInventory=this.gameObject.GetComponent<PlayerInventory>();
         airJumpsRemaining = maxAirJumps;
         StateMachine.Initialize(groundedStateSo, this);
+        StaticEventHandler.OnDeath += StaticEventHandler_OnDeath;
     }
 
     void OnEnable()
@@ -96,6 +100,12 @@ public class CharacterMovement : MonoBehaviour
     {
         StaticEventHandler.OnWindMaskActivated -= ActivateWindMaskState;
         StaticEventHandler.OnMaskEquipped -= EquipMaskAlternate;
+        StaticEventHandler.OnDeath -= StaticEventHandler_OnDeath;
+    }
+
+    private void StaticEventHandler_OnDeath()
+    {
+        canInteract = false;
     }
 
     void ActivateWindMaskState()
@@ -112,6 +122,8 @@ public class CharacterMovement : MonoBehaviour
 
     void Update()
     {
+        if (!canInteract) return;
+        
         ReadJumpInput();
         UpdateTimers();
 
@@ -350,6 +362,7 @@ public class CharacterMovement : MonoBehaviour
     public void StartMaskCooldown()
     {
         maskCooldownTimer = maskCooldown;
+        StaticEventHandler.RaiseMaskCooldownTimer(maskCooldown);
     }
 
 
