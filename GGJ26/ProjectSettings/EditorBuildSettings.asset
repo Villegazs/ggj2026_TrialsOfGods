@@ -16,6 +16,9 @@ EditorBuildSettings:
     guid: 85e3aef256bd1a744b925baf4370cf0f
   - enabled: 1
     path: Assets/Scenes/TestingScene.unity
+    guid: 34f78892cf610a84cb60fffd388415e8
+  - enabled: 0
+    path: Assets/Scenes/HUDTestingScene.unity
     guid: 53270d0005ada774f82fa2fec6b4345a
   - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
