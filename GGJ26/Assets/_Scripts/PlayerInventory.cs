@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using DG.Tweening;
 public class PlayerInventory : MonoBehaviour
 {
     [Header("Equipment Points")]
@@ -8,6 +8,13 @@ public class PlayerInventory : MonoBehaviour
     [Header("Current Equipment")]
     [SerializeField] private GameObject currentMask;
     private bool hasMask = false;
+    
+    [Header("DOTween Pickup Animation")]
+    [SerializeField] private float moveDuration = 0.6f;
+    [SerializeField] private float scaleDuration = 0.5f;
+    [SerializeField] private Ease moveEase = Ease.OutCubic;
+    [SerializeField] private Ease scaleEase = Ease.InBack;
+    
 
     public bool HasMask => hasMask;
 
@@ -39,8 +46,8 @@ public class PlayerInventory : MonoBehaviour
         currentMask = Instantiate(maskPrefab, maskEquipPoint);
         currentMask.transform.localPosition = Vector3.zero;
         currentMask.transform.localRotation = Quaternion.identity;
-
         hasMask = true;
+        PlayPickupTween();
     }
 
     public void RemoveMask()
@@ -52,4 +59,36 @@ public class PlayerInventory : MonoBehaviour
             hasMask = false;
         }
     }
+    
+    // ---------------- PICK UP MASK ----------------
+    
+    
+    private void PlayPickupTween()
+    {
+        currentMask.transform.localScale = Vector3.zero;
+
+        // Crear secuencia: mover -> escalar -> fade (si aplica)
+        Sequence seq = DOTween.Sequence();
+        seq.Join(currentMask.transform.DOScale(Vector3.one, scaleDuration).SetEase(scaleEase));
+    }
+
+    public void UnequipMask()
+    {
+        if (currentMask == null) return;
+        UnequipMaskTween();
+    }
+    private void UnequipMaskTween()
+    {
+
+        // Crear secuencia: mover -> escalar -> fade (si aplica)
+        Sequence seq = DOTween.Sequence();
+        seq.Join(currentMask.transform.DOScale(Vector3.zero, scaleDuration).SetEase(scaleEase));
+        
+        seq.OnComplete(() =>
+        {
+            RemoveMask();
+        });
+    }
+
+
 }

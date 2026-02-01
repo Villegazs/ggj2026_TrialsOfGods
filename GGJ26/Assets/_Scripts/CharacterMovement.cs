@@ -323,6 +323,11 @@ public class CharacterMovement : MonoBehaviour
     {
         _maskPickup = maskPrefab;
     }
+
+    public Transform GetMaskTransform()
+    {
+        return _maskPickup.transform;
+    }
     
     
     public void EquipMask(Masks mask)
@@ -344,7 +349,7 @@ public class CharacterMovement : MonoBehaviour
 
     public void RemoveMask()
     {
-        _playerInventory.RemoveMask();
+        _playerInventory.UnequipMask();
     }
 
     private void EquipMaskAlternate()
