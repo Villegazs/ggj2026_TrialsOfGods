@@ -55,6 +55,7 @@ public abstract class Interactable : MonoBehaviour
     {
         if (other.TryGetComponent(out Player player))
         {
+            isInteractable = true;
             isPlayerInRange = true;
             ShowHighlight();
             EnableInteractionPanel();

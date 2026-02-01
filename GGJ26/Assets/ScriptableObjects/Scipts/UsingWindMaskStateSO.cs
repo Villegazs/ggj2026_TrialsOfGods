@@ -22,7 +22,7 @@ public class UsingWindMaskStateSO : MovementStateSO
         
         UpdateAbilities(ctx);
         windMaskTimer = windMaskDuration;
-        //todo EVENTO POR MEDIO DEL STATIC EVENT HANDLER Y LO RECIVE EL HUD
+        
         StaticEventHandler.RaiseMaskEquippedTimer(windMaskDuration);
     }
 
