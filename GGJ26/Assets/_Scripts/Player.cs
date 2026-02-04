@@ -33,6 +33,8 @@ public class Player : MonoBehaviour , IDamageable
     private void Start()
     {
         playerStateMachine = characterMovement.StateMachine;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     
