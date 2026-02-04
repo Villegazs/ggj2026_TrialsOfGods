@@ -103,7 +103,7 @@ public abstract class Interactable : MonoBehaviour
         isInteractable = false;
         HideHighlight();
         
-        interactionPromptPanel.gameObject.SetActive(false);
+        DisableInteractionPanel();
         
        /* if (oneTimeUse)
         {
@@ -149,5 +149,11 @@ public abstract class Interactable : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, interactionRange);
+    }
+    
+    private void OnDestroy()
+    {
+        GameInput.Instance.OnInteractAction -= GameInput_OnInteractAction;
+        GameInput.Instance.OnInteractAlternateAction -= GameInput_OnInteractAlternateAction;
     }
 }

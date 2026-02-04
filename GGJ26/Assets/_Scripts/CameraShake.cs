@@ -50,4 +50,9 @@ public class CameraShake : MonoBehaviour
         shakeCamera.FrequencyGain = 0f;
         shakeCoroutine = null;
     }
+    
+    private void OnDestroy()
+    {
+        Player.Instance.OnApplyDamage -= Player_OnApplyDamage;
+    }
 }

@@ -44,4 +44,9 @@ public class CharacterRotateTowards : MonoBehaviour
             rotationSpeed * Time.deltaTime
         );
     }
+    
+    private void OnDestroy()
+    {
+        StaticEventHandler.OnDeath -= StaticEventHandler_OnDeath;
+    }
 }

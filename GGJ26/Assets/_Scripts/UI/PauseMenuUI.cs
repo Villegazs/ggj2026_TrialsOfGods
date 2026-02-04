@@ -11,7 +11,7 @@ public class PauseMenuUI : MonoBehaviour
     {
         resumeButton.onClick.AddListener(() =>
         {
-            Player.Instance.TogglePauseGame();
+            TrialsOfGodGameManager.Instance.TogglePauseGame();
         });
         
         mainMenuButton.onClick.AddListener(() =>
@@ -21,8 +21,8 @@ public class PauseMenuUI : MonoBehaviour
     }
     private void Start()
     {
-        Player.Instance.OnGamePaused += Player_OnGamePaused;
-        Player.Instance.OnGameUnpaused += Player_OnGameUnpaused;
+        TrialsOfGodGameManager.Instance.OnGamePaused += Player_OnGamePaused;
+        TrialsOfGodGameManager.Instance.OnGameUnpaused += Player_OnGameUnpaused;
         
         Hide();
     }
@@ -44,5 +44,11 @@ public class PauseMenuUI : MonoBehaviour
     private void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        TrialsOfGodGameManager.Instance.OnGamePaused -= Player_OnGamePaused;
+        TrialsOfGodGameManager.Instance.OnGameUnpaused -= Player_OnGameUnpaused;
     }
 }

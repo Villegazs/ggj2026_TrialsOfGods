@@ -9,6 +9,8 @@ public class MainMenuUI : MonoBehaviour
 
     private void Awake()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         StartGameButton.onClick.AddListener(() =>
         {
             //Click

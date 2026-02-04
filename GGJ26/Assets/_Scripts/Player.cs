@@ -9,8 +9,7 @@ using Unity.Collections;
 
 public class Player : MonoBehaviour , IDamageable
 {
-    public event EventHandler OnGamePaused;
-    public event EventHandler OnGameUnpaused;
+
     public event EventHandler OnApplyDamage;
     public static Player Instance { get; private set; }
     
@@ -21,34 +20,21 @@ public class Player : MonoBehaviour , IDamageable
     private PlayerStateMachine playerStateMachine;
     private int health;
     
-    private bool isGamePaused = false;
-    private bool isCursorLocked = false;
-    
     [ReadOnly] private float timer;
 
     private void Awake()
     {
-        isGamePaused = false;
         Instance = this;
         characterMovement = GetComponent<CharacterMovement>();
         health = (int)maxHealth;
         animator.enabled = true;
-        isCursorLocked = true;
-        CursorState(isCursorLocked);
-
     }
 
     private void Start()
     {
-        GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
         playerStateMachine = characterMovement.StateMachine;
     }
-    private void GameInput_OnPauseAction(object sender, EventArgs e)
-    {
-        if(IsDead()) return;
-        
-        TogglePauseGame();
-    }
+
     
 
     
@@ -59,7 +45,6 @@ public class Player : MonoBehaviour , IDamageable
         Debug.Log($"Player took {damage} damage, remaining health: {health}");
         if (IsDead())
         {
-            CursorState(false);
             StaticEventHandler.RaiseDeath();
             animator.enabled = false;
         }
@@ -75,22 +60,6 @@ public class Player : MonoBehaviour , IDamageable
     }
     
     
-    private void CursorState(bool isLocked)
-    {
-        Debug.Log($"Cursor lock: {isCursorLocked}");
-        isCursorLocked = isLocked;
-        if(isCursorLocked)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        
-    }
 
     public float OnTimerRunningMaskCooldown()
     {
@@ -102,19 +71,5 @@ public class Player : MonoBehaviour , IDamageable
         return characterMovement;
     }
     
-    public void TogglePauseGame()
-    {
-        isGamePaused = !isGamePaused; ;
-        CursorState(!isGamePaused);
-        if (isGamePaused)
-        {
-            Time.timeScale = 0f;
-            OnGamePaused?.Invoke(this, EventArgs.Empty);
-        }
-        else
-        {
-            Time.timeScale = 1f;
-            OnGameUnpaused?.Invoke(this, EventArgs.Empty);
-        }
-    }
+
 }

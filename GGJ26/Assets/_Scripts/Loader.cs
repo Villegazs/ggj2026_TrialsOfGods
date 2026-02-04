@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public static class Loader
 {
 
+    [Serializable]
     public enum Scene
     {
         MainMenuScene,

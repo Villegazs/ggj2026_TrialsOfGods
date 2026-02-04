@@ -71,13 +71,11 @@ public class GameInput : MonoBehaviour
 
     private void OnDestroy()
     {
-        /*
         playerInputActions.Player.Interact.performed -= Interact_Performed;
         playerInputActions.Player.InteractAlternate.performed -= InteractAlternate_Performed;
         playerInputActions.Player.Pause.performed -= Pause_Performed;
         
         playerInputActions.Dispose();
-        */
     }
 
     public string GetBindingText(Binding binding)

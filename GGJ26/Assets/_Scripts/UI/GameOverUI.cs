@@ -43,4 +43,9 @@ public class GameOverUI : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+    
+    private void OnDestroy()
+    {
+        StaticEventHandler.OnDeath -= StaticEventHandler_OnDeath;
+    }
 }

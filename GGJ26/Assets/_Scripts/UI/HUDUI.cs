@@ -77,6 +77,10 @@ public class HUDUI : MonoBehaviour
     private void OnDestroy()
     {
         Player.Instance.OnApplyDamage -= Player_OnApplyDamage;
+        StaticEventHandler.OnMaskEquippedTimer -= StaticEventHandler_OnStartTimer;
+        StaticEventHandler.OnMaskCooldownTimer -= StaticEventHandler_OnStartCooldownTimer;
+        StaticEventHandler.OnWindMaskUnlocked -= StaticEventHandler_OnWindMaskUnlocked;
+        StaticEventHandler.OnDash -= StaticEventHandler_OnRaiseDash;
     }
     private void Update()
     {
