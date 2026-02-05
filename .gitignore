@@ -103,3 +103,4 @@ InitTestScene*.unity*
 *.iml
 cmake-build-*/
 .DS_Store
+GGJ26/Build.zip
