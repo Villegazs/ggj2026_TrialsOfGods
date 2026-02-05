@@ -46,6 +46,73 @@ MonoBehaviour:
   bladeRotation:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-6614605429399318056
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06437c1ff663d574d9447842ba0a72e4, type: 3}
+  m_Name: ScreenSpaceLensFlare
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.ScreenSpaceLensFlare
+  active: 0
+  intensity:
+    m_OverrideState: 1
+    m_Value: 3
+  tintColor:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  bloomMip:
+    m_OverrideState: 1
+    m_Value: 3
+  firstFlareIntensity:
+    m_OverrideState: 1
+    m_Value: 13.9
+  secondaryFlareIntensity:
+    m_OverrideState: 1
+    m_Value: 2.81
+  warpedFlareIntensity:
+    m_OverrideState: 1
+    m_Value: 1.96
+  warpedFlareScale:
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 1}
+  samples:
+    m_OverrideState: 1
+    m_Value: 2
+  sampleDimmer:
+    m_OverrideState: 0
+    m_Value: 0.5
+  vignetteEffect:
+    m_OverrideState: 0
+    m_Value: 1
+  startingPosition:
+    m_OverrideState: 0
+    m_Value: 1.25
+  scale:
+    m_OverrideState: 0
+    m_Value: 1.5
+  streaksIntensity:
+    m_OverrideState: 0
+    m_Value: 0
+  streaksLength:
+    m_OverrideState: 0
+    m_Value: 0.5
+  streaksOrientation:
+    m_OverrideState: 0
+    m_Value: 0
+  streaksThreshold:
+    m_OverrideState: 0
+    m_Value: 0.25
+  resolution:
+    m_OverrideState: 0
+    m_Value: 4
+  chromaticAbberationIntensity:
+    m_OverrideState: 1
+    m_Value: 0.853
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,6 +132,7 @@ MonoBehaviour:
   - {fileID: 3658816490598235314}
   - {fileID: 4429503427289111352}
   - {fileID: 4624316946092648154}
+  - {fileID: -6614605429399318056}
 --- !u!114 &2126449881525483604
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -83,10 +151,10 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1.02
+    m_Value: 1.06
   intensity:
     m_OverrideState: 1
-    m_Value: 3.1
+    m_Value: 1
   scatter:
     m_OverrideState: 1
     m_Value: 0.773
@@ -100,8 +168,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   downscale:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   maxIterations:
     m_OverrideState: 0
     m_Value: 6
