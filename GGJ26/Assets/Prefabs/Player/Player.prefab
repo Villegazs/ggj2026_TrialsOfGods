@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 2267103784970357542}
   - component: {fileID: 8391003204100281134}
   - component: {fileID: 4945825029025458465}
+  - component: {fileID: 871469779425312937}
   - component: {fileID: 755432282696343914}
   m_Layer: 3
   m_Name: Player
@@ -177,13 +178,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
+  m_Height: 2.2
   m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.93, z: 0}
+  m_Center: {x: 0, y: 1.1, z: 0}
 --- !u!114 &3866262085141365053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,6 +253,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   characterController: {fileID: 9166581046974929264}
   rotationSpeed: 10
+--- !u!114 &871469779425312937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7007080603647480970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f608978e9544e4eabe8673a7ea5216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StepSound
 --- !u!114 &755432282696343914
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -222,6 +222,10 @@ public class CharacterMovement : MonoBehaviour
         Velocity += Vector3.up * y;
     }
 
+    public bool IsWalking()
+    {
+        return HorizontalVelocity.sqrMagnitude > 0.1f && Controller.isGrounded;
+    }
     void ApplyMovement()
     {
         Vector3 finalMove = HorizontalVelocity + Vector3.up * Velocity.y;

@@ -19,6 +19,7 @@ public class AirStateSO : MovementStateSO
         {
             ctx.SetVerticalVelocity(ctx.jumpForce);
             ctx.ConsumeAirJump();
+            StaticEventHandler.RaiseJump();
             ctx.ConsumeJumpBuffer();
             return;
         }
@@ -28,6 +29,7 @@ public class AirStateSO : MovementStateSO
 
         if (ctx.Controller.isGrounded)
         {
+            StaticEventHandler.RaiseLand();
             ctx.SetVerticalVelocity(ctx.GroundedStickForce);
             ctx.StateMachine.SwitchState(ctx.groundedStateSo, ctx);
         }

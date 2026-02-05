@@ -13,8 +13,25 @@ MonoBehaviour:
   m_Name: AudioClipsRefSO
   m_EditorClassIdentifier: Assembly-CSharp::AudioClipsRefSO
   takeDamage: []
-  jump: []
-  takeMask: []
-  putMask: []
-  dash: []
+  jump:
+  - {fileID: 8300000, guid: 4664c3962f0ea82488f81fdf9aac8a16, type: 3}
+  - {fileID: 8300000, guid: 644f9fb5b90d1b549a81063c87574cf4, type: 3}
+  - {fileID: 8300000, guid: 5e2ebd5ac8c4f984b9988104b186969f, type: 3}
+  land:
+  - {fileID: 8300000, guid: b50a51f70e1491c4f84c01aa97f8cabe, type: 3}
+  - {fileID: 8300000, guid: 7586652d934222e4da80fe35ec03a062, type: 3}
+  - {fileID: 8300000, guid: 47737b4baaae1944e97617e98904fcf1, type: 3}
+  windMask:
+  - {fileID: 8300000, guid: abd597c154595074a9be1283a684a92b, type: 3}
+  lightMask:
+  - {fileID: 8300000, guid: 0c08655001d40f34da05a7e5d4a5dbdc, type: 3}
+  dash:
+  - {fileID: 8300000, guid: 4a54adf6985a9c84aabcb1c7c0666115, type: 3}
+  - {fileID: 8300000, guid: 90cc27976b4c5c54fa18c0aeffe49a37, type: 3}
+  - {fileID: 8300000, guid: b9aca3dda6435334da3bfe34e81a69f6, type: 3}
   dartProjectile: []
+  door:
+  - {fileID: 8300000, guid: 639c026d09723084e99b7e6ed4c79a12, type: 3}
+  - {fileID: 8300000, guid: 1c00d25b7fb17374a85162392389bcc0, type: 3}
+  steps:
+  - {fileID: 8300000, guid: 1865f50a9a440b54aaab58398b5643ac, type: 3}

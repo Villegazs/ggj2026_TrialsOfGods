@@ -100,6 +100,7 @@ public class TimedDoor : MonoBehaviour
         transform.position = targetPosition;
         isOpen = opening;
         isMoving = false;
+        StopSound();
     }
 
     private IEnumerator AutoClose()
@@ -113,6 +114,14 @@ public class TimedDoor : MonoBehaviour
         if (audioSource != null && clip != null)
         {
             audioSource.PlayOneShot(clip);
+        }
+    }
+
+    private void StopSound()
+    {
+        if (audioSource != null)
+        {
+            audioSource.Stop();
         }
     }
 

@@ -23,6 +23,7 @@ public class GroundedStateSO : MovementStateSO
         {
             ctx.EquipMaskPrefab();
             ctx.StateMachine.SwitchState(ctx.usingWindMaskStateSo, ctx);
+            StaticEventHandler.RaiseWindMaskActivated();
             StaticEventHandler.RaiseMaskEquippedTimer(ctx.usingWindMaskStateSo.windMaskDuration);
             StaticEventHandler.RaiseDash(false);
             return;
@@ -34,6 +35,7 @@ public class GroundedStateSO : MovementStateSO
         {
             ctx.SetVerticalVelocity(ctx.jumpForce);
             ctx.ConsumeJumpBuffer();
+            StaticEventHandler.RaiseJump();
             ctx.StateMachine.SwitchState(ctx.airStateSo, ctx);
             return;
         }

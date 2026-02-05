@@ -421,7 +421,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1124c6ab3049e94b82b2ce900e6ab2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
-  waypoints: []
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
   moveSpeed: 3
   loop: 1
   waitTimeAtPoint: 0
