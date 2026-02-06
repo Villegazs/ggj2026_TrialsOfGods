@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 public class HandleAnimations : MonoBehaviour
 {
     [SerializeField] private CharacterMovement characterMovement;
     [SerializeField] private float walkThreshold = 0.1f;
+    [SerializeField] private Transform walkingParticleTransform;
 
     private Animator animator;
 
@@ -20,6 +22,11 @@ public class HandleAnimations : MonoBehaviour
 
         if (characterMovement == null)
             characterMovement = GetComponentInParent<CharacterMovement>();
+    }
+
+    private void Start()
+    {
+        StaticEventHandler.OnLand += StaticEventHandler_OnLand;
     }
 
     void Update()
@@ -64,6 +71,20 @@ public class HandleAnimations : MonoBehaviour
         if (jumpStarted)
         {
             animator.SetTrigger(JumpHash);
+            SetStateOfWalkingParticle(false);
+        }
+    }
+    
+    private void StaticEventHandler_OnLand()
+    {
+        SetStateOfWalkingParticle(true);
+    }
+    
+    private void SetStateOfWalkingParticle(bool isActive)
+    {
+        if (walkingParticleTransform != null)
+        {
+            walkingParticleTransform.gameObject.SetActive(isActive);
         }
     }
 }
