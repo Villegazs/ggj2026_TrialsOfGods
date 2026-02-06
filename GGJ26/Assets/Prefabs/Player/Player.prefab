@@ -5601,6 +5601,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f2f51e5e92a2d5d458ed1d7710469444, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1271108705311266919}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f2f51e5e92a2d5d458ed1d7710469444, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 161015558002014112}
     - targetCorrespondingSourceObject: {fileID: 1082271958561512970, guid: f2f51e5e92a2d5d458ed1d7710469444, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2487920639743116729}
@@ -6022,6 +6025,23 @@ MonoBehaviour:
   walkThreshold: 0.1
   walkingParticleTransform: {fileID: 5863999234849214731}
 --- !u!114 &1271108705311266919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2323389206976165767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd8cc912bc7524489cb310b9bb8646e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeshTrail
+  activeTime: 0.6
+  meshFreshRate: 0.07
+  positionToSpawn: {fileID: 0}
+  meshDestroyDelay: 1
+  mat: {fileID: 2100000, guid: 2f3e1a8689e011e4db0e465675a5d1bd, type: 2}
+--- !u!114 &161015558002014112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
