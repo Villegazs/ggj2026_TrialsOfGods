@@ -7,9 +7,8 @@ public class CompleteLevel : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Level completed");
-        if (other.TryGetComponent(out Player player))
+        if (other.gameObject.CompareTag("Player"))
         {
-            if(player.IsDead()) return;
             OnLevelCompleted?.Invoke(this, EventArgs.Empty);
         }
         else
